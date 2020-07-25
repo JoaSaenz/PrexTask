@@ -7,12 +7,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 public class ApplicationUser implements UserDetails {
 
-    /**
-     *
-     */
-    private static final long serialVersionUID = 1L;
-    private final String password;
     private final String username;
+    private final String password;
     private final Set<? extends GrantedAuthority> grantedAuthorities;
     private final boolean isAccountNonExpired;
     private final boolean isAccountNonLocked;
@@ -55,17 +51,16 @@ public class ApplicationUser implements UserDetails {
         return isEnabled;
     }
 
-    public ApplicationUser(String password, String username, Set<? extends GrantedAuthority> grantedAuthorities,
+    public ApplicationUser(String username, String password, Set<? extends GrantedAuthority> grantedAuthorities,
             boolean isAccountNonExpired, boolean isAccountNonLocked, boolean isCredentialsNonExpired,
             boolean isEnabled) {
-        this.password = password;
         this.username = username;
+        this.password = password;
         this.grantedAuthorities = grantedAuthorities;
         this.isAccountNonExpired = isAccountNonExpired;
         this.isAccountNonLocked = isAccountNonLocked;
         this.isCredentialsNonExpired = isCredentialsNonExpired;
         this.isEnabled = isEnabled;
     }
-
     
 }

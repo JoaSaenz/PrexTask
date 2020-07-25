@@ -35,12 +35,26 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 // .antMatchers(HttpMethod.POST, "/api/**").hasAuthority(CLIENTE_WRITE.name())
                 // .antMatchers(HttpMethod.PUT, "/api/**").hasAuthority(CLIENTE_WRITE.name())
                 // .antMatchers(HttpMethod.GET, "/api/**").hasAnyRole(ADMIN.name(), USER.name())
-                .anyRequest().authenticated().and().formLogin().loginPage("/login").permitAll()
-                .defaultSuccessUrl("/clientes", true).passwordParameter("password").usernameParameter("username").and()
+                .anyRequest()
+                .authenticated()
+                .and()
+                .formLogin()
+                    .loginPage("/login")
+                    .permitAll()
+                    .defaultSuccessUrl("/clientes", true)
+                    .passwordParameter("password")
+                    .usernameParameter("username")
+                .and()
                 .rememberMe() // default 2 weeks
-                .rememberMeParameter("remember-me").and().logout().logoutUrl("/logout")
-                .logoutRequestMatcher(new AntPathRequestMatcher("/logout", "GET")).clearAuthentication(true)
-                .invalidateHttpSession(true).deleteCookies("JSESSIONID", "remember-me").logoutSuccessUrl("/login");
+                    .rememberMeParameter("remember-me")
+                .and()
+                .logout()
+                    .logoutUrl("/logout")
+                    .logoutRequestMatcher(new AntPathRequestMatcher("/logout", "GET"))
+                    .clearAuthentication(true)
+                    .invalidateHttpSession(true)
+                    .deleteCookies("JSESSIONID", "remember-me")
+                    .logoutSuccessUrl("/login");
     }
 
     @Override
