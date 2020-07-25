@@ -10,7 +10,8 @@ import com.google.common.collect.Sets;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 public enum ApplicationUserRole {
-    ADMIN(Sets.newHashSet(CLIENTE_READ, CLIENTE_WRITE)), USER(Sets.newHashSet(CLIENTE_READ));
+    ADMIN(Sets.newHashSet(CLIENTE_READ, CLIENTE_WRITE)), 
+    USER(Sets.newHashSet(CLIENTE_READ));
 
     private final Set<ApplicationUserPermission> permissions;
 
