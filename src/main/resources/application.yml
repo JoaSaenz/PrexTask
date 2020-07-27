@@ -1,0 +1,6 @@
+app:
+    datasource:
+        jdbc-url: jdbc:postgresql://localhost:5432/demo
+        username: postgres
+        password: camaleon
+        pool-size: 30
